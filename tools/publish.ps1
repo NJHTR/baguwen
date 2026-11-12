@@ -51,16 +51,18 @@ if ($DryRun) {
     exit 0
 }
 
-# 5) 提交并推送
-git add -A
-git commit -q -m $Message
+# 5) 提交并推送（正常时静默，失败时打印 git 原始输出）
+git add -A 2>&1 | Out-Null
+$commitOut = git commit -q -m $Message 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host '提交失败，请检查 git 状态。' -ForegroundColor Red
+    $commitOut
     exit 1
 }
-git push origin main
+$pushOut = git push origin main 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host '推送失败：检查网络与 GitHub 凭据。' -ForegroundColor Red
+    $pushOut
     exit 1
 }
 
