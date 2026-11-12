@@ -12,6 +12,7 @@ $files = Get-ChildItem -LiteralPath $root -Recurse -File -Filter *.md |
 function Get-Section([string]$rel) {
     $p = $rel -replace '\\', '/'
     if ($p -eq 'README.md') { return 'start' }
+    if ($p -eq 'MAINTENANCE.md') { return 'start' }
     if ($p -like '00-plan/*') { return 'plan' }
     if ($p -like '10-deep-dive/01-*') { return 'start' }
     if ($p -like '10-deep-dive/00-*') { return 'deep-index' }

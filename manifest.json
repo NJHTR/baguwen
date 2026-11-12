@@ -1,10 +1,17 @@
 {
-    "generatedAt":  "2026-11-12 12:29",
+    "generatedAt":  "2026-11-12 14:20",
     "files":  [
+                  {
+                      "path":  "MAINTENANCE.md",
+                      "title":  "维护手册",
+                      "lines":  264,
+                      "section":  "start",
+                      "summary":  "pwsh -File tools/new-note.ps1 -Section java -Title \"Spring Bean 作用域\""
+                  },
                   {
                       "path":  "README.md",
                       "title":  "全栈 Web 开发面试知识库",
-                      "lines":  168,
+                      "lines":  169,
                       "section":  "start",
                       "summary":  "https://njhtr.github.io/baguwen/"
                   },
@@ -500,7 +507,7 @@
                   }
               ],
     "stats":  {
-                  "files":  71,
-                  "lines":  19297
+                  "files":  72,
+                  "lines":  19562
               }
 }

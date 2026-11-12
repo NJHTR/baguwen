@@ -52,6 +52,7 @@
 | 目录 / 文件 | 内容 | 面试权重 | 建议投入 |
 |---|---|---|---|
 | [00-plan/路线图.md](00-plan/路线图.md) | 分阶段学习计划、每日任务表、进度追踪 | — | 先读 |
+| [MAINTENANCE.md](MAINTENANCE.md) | **维护手册**：写 / 检查 / 发布 / 部署流程，脚本说明，故障排查 | — | 维护时看 |
 | [01-js/JS核心八股.md](01-js/JS核心八股.md) | 闭包、this、原型链、事件循环、Promise、深浅拷贝、GC、ES6+、事件流 | 5/5 | 5 天 |
 | [01-js/TypeScript与类型系统.md](01-js/TypeScript与类型系统.md) | 泛型、interface vs type、类型守卫、工具类型、Vue3 + TS 实战 | 5/5 | 2 天 |
 | [02-vue/Vue3原理与对比.md](02-vue/Vue3原理与对比.md) | 响应式原理、ref/reactive、diff、生命周期、组件通信、Pinia、Vue vs React | 5/5 | 5 天 |
