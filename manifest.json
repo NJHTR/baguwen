@@ -1,0 +1,506 @@
+{
+    "generatedAt":  "2026-11-12 12:29",
+    "files":  [
+                  {
+                      "path":  "README.md",
+                      "title":  "全栈 Web 开发面试知识库",
+                      "lines":  168,
+                      "section":  "start",
+                      "summary":  "https://njhtr.github.io/baguwen/"
+                  },
+                  {
+                      "path":  "00-plan/路线图.md",
+                      "title":  "全栈面试学习路线图",
+                      "lines":  214,
+                      "section":  "plan",
+                      "summary":  "没有 deadline 的最大风险是 无限拖延。所以本路线图不按\"日历\"排，按 周次 + 验收标准 排：一周可以慢到 10 天，但那一周的产出物必须交。"
+                  },
+                  {
+                      "path":  "10-deep-dive/00-索引.md",
+                      "title":  "深度追问索引（Deep Dive）",
+                      "lines":  205,
+                      "section":  "deep-index",
+                      "summary":  "但真实面试会这样打断："
+                  },
+                  {
+                      "path":  "10-deep-dive/js/01-原型链.md",
+                      "title":  "原型链（Prototype Chain）",
+                      "lines":  232,
+                      "section":  "deep-js",
+                      "summary":  "每个对象都有一个内部槽 `[[Prototype]]` 指向另一个对象（或 `null`）。访问属性时，先查自身，查不到就顺着 `[[Prototype]]` 往上找，直到找到或到…"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/02-事件循环.md",
+                      "title":  "事件循环（Event Loop）",
+                      "lines":  220,
+                      "section":  "deep-js",
+                      "summary":  "事件循环不断取任务执行：同步代码在调用栈跑完 → 清空所有微任务 → 浏览器找机会渲染 → 再取一个宏任务。微任务（`Promise` 回调、`await` 之后、`queueMi…"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/03-async-await.md",
+                      "title":  "async/await 与执行顺序",
+                      "lines":  259,
+                      "section":  "deep-js",
+                      "summary":  "1. 调用即执行：`asyncFn()` 被调用后，函数体同步执行到第一个 `await`（或 `return`/抛错）。"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/04-闭包.md",
+                      "title":  "闭包（Closure）",
+                      "lines":  239,
+                      "section":  "deep-js",
+                      "summary":  "闭包是函数与其定义时词法环境的组合：内层函数引用了外层变量，并在外层函数返回后依然能访问这些变量。变量不会被销毁，直到引用它的函数对象变得不可达。"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/05-this绑定.md",
+                      "title":  "this 绑定（This Binding）",
+                      "lines":  213,
+                      "section":  "deep-js",
+                      "summary":  "优先级：`new` \u003e `bind` \u003e `call/apply` \u003e 隐式 \u003e 默认。"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/06-Promise实现.md",
+                      "title":  "Promise 手写实现（Promise Implementation）",
+                      "lines":  260,
+                      "section":  "deep-js",
+                      "summary":  "Promise 是只有 `pending → fulfilled / rejected` 单向变化的状态机；`then` 注册回调并返回新的 Promise，回调通过微任务异步执行…"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/07-ES6新特性.md",
+                      "title":  "ES6+ 新特性（ES6+ Features）",
+                      "lines":  237,
+                      "section":  "deep-js",
+                      "summary":  "ES6+ 的核心是四件事：`let/const` 提供块级作用域与 TDZ；解构/展开/箭头函数/模板字符串提升表达力；`Symbol` + 迭代器协议让对象可被 `for...o…"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/08-前端性能优化.md",
+                      "title":  "前端性能优化（Performance）",
+                      "lines":  218,
+                      "section":  "deep-js",
+                      "summary":  "性能优化 = 缩短关键路径 + 减少主线程阻塞：网络层减请求/压体积/用缓存，解析层减少阻塞资源，执行层拆分长任务，渲染层减少布局绘制，交互层降低 INP；用 FCP、LCP、IN…"
+                  },
+                  {
+                      "path":  "10-deep-dive/js/09-V8内存与GC.md",
+                      "title":  "V8 内存与垃圾回收（Memory \u0026 GC）",
+                      "lines":  207,
+                      "section":  "deep-js",
+                      "summary":  "V8 把堆分成新生代和老生代，从根对象出发做可达性分析：Scavenge 复制算法回收新生代，标记-清除/标记-整理回收老生代，并用增量标记、并发回收降低停顿；内存泄漏 = 对象不…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/01-HashMap.md",
+                      "title":  "HashMap 底层（数组 + 链表 + 红黑树）",
+                      "lines":  255,
+                      "section":  "deep-java",
+                      "summary":  "JDK 8 的 HashMap 是 `Node[] table`（数组）+ 链表 + 红黑树：`hash()` 把 hashCode 高低 16 位异或做扰动，用 `(n-1) \u0026…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/02-String与常量池.md",
+                      "title":  "String 与字符串常量池（String \u0026 Constant Pool）",
+                      "lines":  234,
+                      "section":  "deep-java",
+                      "summary":  "public final class String {                       // ① 类 final，不能被继承改写行为"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/03-集合体系.md",
+                      "title":  "集合体系（Collection Framework）",
+                      "lines":  248,
+                      "section":  "deep-java",
+                      "summary":  "Collection"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/04-泛型擦除与反射.md",
+                      "title":  "泛型擦除与反射（Type Erasure \u0026 Reflection）",
+                      "lines":  250,
+                      "section":  "deep-java",
+                      "summary":  "Java 泛型在编译期检查、编译后擦除为 `Object` 或上界，所以运行时 `List\u003cString\u003e` 和 `List\u003cInteger\u003e` 是同一个类；泛型信息只保留在 cl…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/05-JVM内存区域.md",
+                      "title":  "JVM 内存区域（JVM Memory Areas \u0026 Object Layout）",
+                      "lines":  239,
+                      "section":  "deep-java",
+                      "summary":  "JVM 运行时数据区分线程私有（程序计数器、虚拟机栈、本地方法栈）和线程共享（堆、方法区；JDK 8 后方法区由元空间实现、在本地内存），另有不在规范里的直接内存。会 OOM 的是…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/06-垃圾回收GC.md",
+                      "title":  "垃圾回收（Garbage Collection）",
+                      "lines":  259,
+                      "section":  "deep-java",
+                      "summary":  "JVM 用可达性分析从 GC Roots 出发标记活对象，按「对象大多朝生夕死」的分代假说：新生代用复制算法（Eden 与两个 Survivor 8:1:1），老年代用标记-清除/…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/07-类加载与双亲委派.md",
+                      "title":  "类加载与双亲委派（Class Loading \u0026 Parent Delegation）",
+                      "lines":  257,
+                      "section":  "deep-java",
+                      "summary":  "类加载分加载 → 验证 → 准备 → 解析 → 初始化五步：准备阶段只给 static 变量赋零值，赋代码里的值发生在初始化（执行 `\u003cclinit\u003e`）。双亲委派是加载类时先委派…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/08-线程池.md",
+                      "title":  "线程池（ThreadPoolExecutor）",
+                      "lines":  259,
+                      "section":  "deep-java",
+                      "summary":  "线程池预先创建并复用一批工作线程跑任务：提交任务时按「核心线程 → 阻塞队列 → 非核心线程 → 拒绝策略」四步判断，内部用 `ctl` 高 3 位存运行状态、低 29 位存线程数…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/09-synchronized与锁升级.md",
+                      "title":  "synchronized 与锁升级",
+                      "lines":  248,
+                      "section":  "deep-java",
+                      "summary":  "同步代码块编译成 `monitorenter` / `monitorexit` 两条字节码，同步方法靠方法访问标志 `ACC_SYNCHRONIZED`；JVM 把锁状态记在对象头…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/10-volatile-CAS-AQS.md",
+                      "title":  "volatile、CAS 与 AQS",
+                      "lines":  261,
+                      "section":  "deep-java",
+                      "summary":  "JMM 规定每个线程有工作内存（寄存器 + CPU 缓存），共享变量在主内存，`volatile` 靠内存屏障保证写入立刻对其他线程可见、且禁止指令重排；CAS 靠 `Unsafe…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/11-ThreadLocal.md",
+                      "title":  "ThreadLocal",
+                      "lines":  236,
+                      "section":  "deep-java",
+                      "summary":  "Thread"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/12-ConcurrentHashMap.md",
+                      "title":  "ConcurrentHashMap 底层（JDK 7 Segment 到 JDK 8 锁桶）",
+                      "lines":  260,
+                      "section":  "deep-java",
+                      "summary":  "JDK 7 用 `Segment[]` 分段锁（继承 `ReentrantLock`，默认 16 段，并发度 = 段数）；JDK 8 改成 `Node[]` 数组，空桶用 CAS …"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/13-IO模型与NIO.md",
+                      "title":  "IO 模型与 NIO（BIO / NIO / epoll / Netty）",
+                      "lines":  258,
+                      "section":  "deep-java",
+                      "summary":  "BIO 是「一连接一线程，读不到就阻塞」；NIO 是「非阻塞 + 一个 Selector 管所有连接」，由内核告诉你哪些连接就绪；Linux 上这个「内核告诉你」的能力就是 epo…"
+                  },
+                  {
+                      "path":  "10-deep-dive/java/14-JVM调优与线上排查.md",
+                      "title":  "JVM 调优与线上排查（OOM / GC / CPU / 容器）",
+                      "lines":  241,
+                      "section":  "deep-java",
+                      "summary":  "先分类再动手：CPU 高用 `top -Hp` 找线程再 `jstack` 对 `nid`；内存涨用 `jcmd GC.class_histogram` / `jmap -dump…"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/01-IoC与Bean生命周期.md",
+                      "title":  "IoC 容器与 Bean 生命周期",
+                      "lines":  229,
+                      "section":  "deep-spring",
+                      "summary":  "IoC 把「对象怎么创建、依赖谁」的控制权从代码里反转给容器：容器扫描/解析出 `BeanDefinition` 注册到 `BeanFactory`，`refresh()` 里先跑…"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/02-AOP与动态代理.md",
+                      "title":  "AOP 与动态代理",
+                      "lines":  204,
+                      "section":  "deep-spring",
+                      "summary":  "@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)   // 两个开关都要会"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/03-事务传播与失效.md",
+                      "title":  "事务传播与失效",
+                      "lines":  226,
+                      "section":  "deep-spring",
+                      "summary":  "调用方（拿到的是代理）"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/04-SpringBoot自动配置.md",
+                      "title":  "SpringBoot 自动配置",
+                      "lines":  225,
+                      "section":  "deep-spring",
+                      "summary":  "@SpringBootApplication"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/05-SpringMVC请求链路.md",
+                      "title":  "SpringMVC 请求链路",
+                      "lines":  246,
+                      "section":  "deep-spring",
+                      "summary":  "请求进来先经过 `Filter` 链到 `DispatcherServlet`，`doDispatch` 依次做：`getHandler`（`HandlerMapping` 返回 …"
+                  },
+                  {
+                      "path":  "10-deep-dive/spring/06-SpringSecurity与鉴权.md",
+                      "title":  "Spring Security 与鉴权",
+                      "lines":  249,
+                      "section":  "deep-spring",
+                      "summary":  "Servlet 容器只注册了一个 `springSecurityFilterChain`（`DelegatingFilterProxy`），它转到 `FilterChainProx…"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/01-B+树索引.md",
+                      "title":  "B+ 树索引与 InnoDB 页（B+ Tree Index）",
+                      "lines":  240,
+                      "section":  "deep-mysql",
+                      "summary":  "InnoDB 用 B+ 树组织索引：非叶子节点只存「键 + 子页号」，叶子节点按主键顺序用双向链表相连；聚簇索引的叶子直接存整行数据，二级索引的叶子只存「索引列 + 主键」，所以查…"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/02-MVCC与事务隔离.md",
+                      "title":  "MVCC 与事务隔离（Multi-Version Concurrency Control）",
+                      "lines":  233,
+                      "section":  "deep-mysql",
+                      "summary":  "MVCC 是\"一致性非锁定读\"：每行记录有隐藏的 `DB_TRX_ID`（最后修改它的事务 ID）和 `DB_ROLL_PTR`（指向 undo log 里上一个版本），多个版本用…"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/03-锁与死锁.md",
+                      "title":  "锁机制与死锁（Lock \u0026 Deadlock）",
+                      "lines":  261,
+                      "section":  "deep-mysql",
+                      "summary":  "InnoDB 的行锁加在索引记录上，默认是 RR 下的 next-key lock（记录锁 + 间隙锁），用来防幻读；如果 WHERE 没用到索引，就会扫描并锁住所有记录和间隙，表…"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/04-执行计划与SQL优化.md",
+                      "title":  "执行计划与慢 SQL 优化（EXPLAIN \u0026 Optimization）",
+                      "lines":  260,
+                      "section":  "deep-mysql",
+                      "summary":  "system \u003e const \u003e eq_ref \u003e ref \u003e range \u003e index \u003e ALL"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/05-三大日志与崩溃恢复.md",
+                      "title":  "三大日志与崩溃恢复（Redo / Undo / Binlog）",
+                      "lines":  259,
+                      "section":  "deep-mysql",
+                      "summary":  "redo log 是 InnoDB 的物理日志，用 WAL 先把日志顺序写盘、脏页异步刷，环形结构 + LSN 保证崩溃后能重放到一致状态；undo log 是逻辑日志，存旧值，负…"
+                  },
+                  {
+                      "path":  "10-deep-dive/mysql/06-分库分表与分页优化.md",
+                      "title":  "分库分表与分页优化（Sharding \u0026 Pagination）",
+                      "lines":  261,
+                      "section":  "deep-mysql",
+                      "summary":  "先优化再拆：索引、冷热分离、归档、读写分离都试过，单表逼近 2000 万行或写入打满，才考虑拆分。垂直拆分按业务/字段切库表，水平拆分按分片键（取模/范围/一致性哈希）切行。全局 …"
+                  },
+                  {
+                      "path":  "10-deep-dive/redis/01-数据结构与编码.md",
+                      "title":  "Redis 数据结构与底层编码（Data Structures \u0026 Encodings）",
+                      "lines":  249,
+                      "section":  "deep-redis",
+                      "summary":  "Redis 对外只有 5 种基本类型（string/hash/list/set/zset），内部每种类型都有多种编码：小数据用 SDS、listpack、intset 这类紧凑结构…"
+                  },
+                  {
+                      "path":  "10-deep-dive/redis/02-持久化与淘汰.md",
+                      "title":  "持久化与过期淘汰（RDB / AOF / Eviction）",
+                      "lines":  261,
+                      "section":  "deep-redis",
+                      "summary":  "RDB 是「定时 fork 子进程把内存快照写成二进制文件」，恢复快但可能丢最后一次快照后的数据；AOF 是「把每条写命令追加到日志」，按 `appendfsync` 策略决定丢多…"
+                  },
+                  {
+                      "path":  "10-deep-dive/redis/03-缓存三件套与一致性.md",
+                      "title":  "缓存三件套与一致性（穿透 / 击穿 / 雪崩 / 双写）",
+                      "lines":  261,
+                      "section":  "deep-redis",
+                      "summary":  "穿透：查一个 DB 里也没有的数据，缓存永远不命中 → 空值缓存 + 布隆过滤器。击穿：某个热点 key 过期瞬间，大量请求同时打到 DB → 互斥锁重建或逻辑过期。雪崩：大量 k…"
+                  },
+                  {
+                      "path":  "10-deep-dive/redis/04-分布式锁与高可用.md",
+                      "title":  "分布式锁与 Redis 高可用（Distributed Lock \u0026 HA）",
+                      "lines":  261,
+                      "section":  "deep-redis",
+                      "summary":  "分布式锁要同时满足互斥、防死锁、防误删。演进链：`SETNX` → `SETNX + EXPIRE`（不原子）→ `SET key value NX EX`（原子加锁）→ Lua …"
+                  },
+                  {
+                      "path":  "10-deep-dive/redis/05-多级缓存与热点探测.md",
+                      "title":  "多级缓存与热点探测（Multi-level Cache \u0026 Hotkey）",
+                      "lines":  261,
+                      "section":  "deep-redis",
+                      "summary":  "多级缓存是「本地缓存（Caffeine，纳秒级）+ Redis（毫秒级共享）+ DB」三层。本地缓存用 W-TinyLFU 抗扫描污染，一致性靠广播失效/版本号/短 TTL；热点 …"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/01-Kafka架构与ISR.md",
+                      "title":  "Kafka 架构与 ISR（副本同步与元数据层）",
+                      "lines":  250,
+                      "section":  "deep-middleware",
+                      "summary":  "一个 Topic 被切成多个 Partition 分布在多个 Broker 上，每个 Partition 有 1 个 Leader + N 个 Follower 副本。读写都走 L…"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/02-Kafka零拷贝.md",
+                      "title":  "Kafka 零拷贝与高性能（内核拷贝链路）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "传统「磁盘文件 → 网络」要走 `read + write`：4 次上下文切换、4 次数据拷贝（2 次 DMA + 2 次 CPU 拷贝），数据白进出一趟用户态。Kafka 消费端…"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/03-Kafka可靠性与幂等.md",
+                      "title":  "Kafka 可靠性与幂等（acks / 事务 / Exactly-Once）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "不丢靠：生产端 `acks=all + retries + delivery.timeout.ms`，Broker 端 `replication.factor=3 + min.in…"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/04-MyBatis原理.md",
+                      "title":  "MyBatis 原理（SqlSession / Executor / 动态代理 / 缓存 / 插件）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "mybatis-config.xml ─► SqlSessionFactoryBuilder.build()"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/05-SSE.md",
+                      "title":  "SSE（Server-Sent Events 服务端推送）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "SSE 就是一个 `Content-Type: text/event-stream` 的、永不结束的 HTTP 响应。服务端持续往响应体写 `data: xxx\\n\\n` 这样的文…"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/06-WebSocket.md",
+                      "title":  "WebSocket（Upgrade 握手 / 帧协议 / 心跳 / 集群会话）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "客户端发带 `Upgrade: websocket`、`Connection: Upgrade`、`Sec-WebSocket-Key` 的 HTTP 请求，服务端返回 101 S…"
+                  },
+                  {
+                      "path":  "10-deep-dive/middleware/07-Docker.md",
+                      "title":  "Docker（namespace / cgroup / OverlayFS / 运行时调用链）",
+                      "lines":  261,
+                      "section":  "deep-middleware",
+                      "summary":  "Docker 用 namespace 给进程隔离\"视野\"（PID、网络、挂载点、主机名、IPC、用户、cgroup），用 cgroup 限制\"用量\"（CPU、内存、IO、进程数），…"
+                  },
+                  {
+                      "path":  "10-deep-dive/distributed/01-分布式事务.md",
+                      "title":  "分布式事务",
+                      "lines":  243,
+                      "section":  "deep-distributed",
+                      "summary":  "单库靠数据库 ACID 就够了，跨服务/跨库没有全局锁，只能选：2PC/3PC（协调者两阶段提交，强一致但同步阻塞、协调者单点）、TCC（Try 预留、Confirm 提交、Can…"
+                  },
+                  {
+                      "path":  "10-deep-dive/distributed/02-CAP与Raft.md",
+                      "title":  "CAP 与 Raft",
+                      "lines":  235,
+                      "section":  "deep-distributed",
+                      "summary":  "CAP：一致性、可用性、分区容忍三者最多同时满足两个，而分布式系统里 P 必须保留，所以真实系统只能选 CP（etcd、ZooKeeper、HBase）或 AP（Eureka、Ca…"
+                  },
+                  {
+                      "path":  "10-deep-dive/distributed/03-限流熔断降级.md",
+                      "title":  "限流、熔断与降级",
+                      "lines":  256,
+                      "section":  "deep-distributed",
+                      "summary":  "限流：固定窗口有「临界双倍流量」问题，所以用滑动窗口（Sentinel 的 `LeapArray`）或令牌桶（允许突发）/漏桶（恒定速率）。熔断：统计一段时间内的失败率/慢调用比例…"
+                  },
+                  {
+                      "path":  "10-deep-dive/network/01-TCP连接与调优.md",
+                      "title":  "TCP 连接与调优（握手 / 挥手 / 窗口 / 拥塞控制 / backlog）",
+                      "lines":  258,
+                      "section":  "deep-network",
+                      "summary":  "三次握手让双方各自确认\"我的发、你的收、你的发、我的收\"都正常，并同步初始序列号 ISN；四次挥手指两个方向各自关闭（半关闭），主动关闭方最后进入 TIME_WAIT 等 2MSL…"
+                  },
+                  {
+                      "path":  "10-deep-dive/network/02-TLS与HTTPS握手.md",
+                      "title":  "TLS 与 HTTPS 握手（证书 / ECDHE / 1.3 / HTTP2/3）",
+                      "lines":  259,
+                      "section":  "deep-network",
+                      "summary":  "HTTPS 在 TCP 之上加了一层 TLS：证书链证明服务器身份（由受信 CA 签名），密钥交换（ECDHE）协商出会话密钥，对称加密（AES-GCM/ChaCha20）加密后续…"
+                  },
+                  {
+                      "path":  "10-deep-dive/ops/01-Linux性能排查.md",
+                      "title":  "Linux 性能排查（负载 / CPU / 内存 / IO / 网络 / 方法论）",
+                      "lines":  261,
+                      "section":  "deep-ops",
+                      "summary":  "排查顺序固定为：平均负载 → CPU/内存/磁盘/网络四类资源（USE：使用率/饱和度/错误）→ 定位到进程与线程 → 系统调用与调用栈（strace/perf/火焰图）→ 再回到…"
+                  },
+                  {
+                      "path":  "10-deep-dive/ops/02-可观测性.md",
+                      "title":  "可观测性（日志 / 指标 / 链路追踪 / SLO）",
+                      "lines":  261,
+                      "section":  "deep-ops",
+                      "summary":  "可观测性 = 指标 + 日志 + 链路追踪 + 统一上下文。指标用 Prometheus 的 Counter/Gauge/Histogram 做趋势与告警；日志结构化输出并带上 t…"
+                  },
+                  {
+                      "path":  "10-deep-dive/backend-opt/01-接口性能优化.md",
+                      "title":  "接口性能优化（连接池 / 批量 / 序列化 / 缓存分层 / 排查）",
+                      "lines":  261,
+                      "section":  "deep-backend",
+                      "summary":  "先看耗时花在哪（监控/链路追踪/Arthas/火焰图），再按顺序优化：① 减少往返（连接池、keep-alive、接口合并、批量）；② 减少数据量（只查需要的字段、分页、压缩、更紧…"
+                  },
+                  {
+                      "path":  "10-deep-dive/backend-opt/02-异步与削峰.md",
+                      "title":  "异步与削峰（线程池隔离 / MQ 削峰 / 背压 / 任务可靠性）",
+                      "lines":  261,
+                      "section":  "deep-backend",
+                      "summary":  "异步 = 把非关键路径从主链路摘出去，用有界线程池或 MQ 承接，接口先返回、后台慢慢做；削峰 = 用消息队列/有界队列把瞬时高峰缓冲起来，消费者按自己的速率消费（\"填谷\"）。异步…"
+                  },
+                  {
+                      "path":  "01-js/JS核心八股.md",
+                      "title":  "JS 核心八股",
+                      "lines":  445,
+                      "section":  "breadth-js",
+                      "summary":  "怎么用：先背「一句话答案」，再读「原理展开」，然后用「60 秒版」出声讲一遍；「追问陷阱」面试前扫一眼，防止答对第一层被第二层问倒。"
+                  },
+                  {
+                      "path":  "01-js/TypeScript与类型系统.md",
+                      "title":  "TypeScript 与类型系统",
+                      "lines":  450,
+                      "section":  "breadth-js",
+                      "summary":  "怎么用：TS 面试很少考偏门语法，重点是「你会不会用它写业务、能不能讲清类型和运行时的边界」。本文按面试提问频率排序，每节末的 60 秒稿可直接背。"
+                  },
+                  {
+                      "path":  "02-vue/Vue3原理与对比.md",
+                      "title":  "Vue3 原理与对比",
+                      "lines":  436,
+                      "section":  "breadth-vue",
+                      "summary":  "相关章节：JS 核心八股　|　TypeScript 与类型系统　|　HTTP 与浏览器　|　前端手写题 30 道　|　项目复盘与简历"
+                  },
+                  {
+                      "path":  "03-java/Java基础与并发.md",
+                      "title":  "Java 基础与并发",
+                      "lines":  445,
+                      "section":  "breadth-java",
+                      "summary":  "模块定位：本章是 SpringBoot 与后端工程 的地基——Bean 容器本质是个 `ConcurrentHashMap`，`@Transactional` 靠 `ThreadL…"
+                  },
+                  {
+                      "path":  "03-java/SpringBoot与后端工程.md",
+                      "title":  "SpringBoot 与后端工程",
+                      "lines":  448,
+                      "section":  "breadth-java",
+                      "summary":  "模块定位：本章把 Java 基础与并发 的知识变成工程能力——IoC 的容器本质是 `ConcurrentHashMap`，AOP 靠反射与动态代理，事务靠 `ThreadLoca…"
+                  },
+                  {
+                      "path":  "04-database/MySQL与Redis.md",
+                      "title":  "MySQL 与 Redis",
+                      "lines":  426,
+                      "section":  "breadth-db",
+                      "summary":  "模块定位：本章和 Java 基础与并发 的 JVM/GC 一起构成「性能优化」的两条腿；索引与事务是 SpringBoot 与后端工程 里 `@Transactional` 和 M…"
+                  },
+                  {
+                      "path":  "05-network/HTTP与浏览器.md",
+                      "title":  "HTTP 与浏览器",
+                      "lines":  348,
+                      "section":  "breadth-net",
+                      "summary":  "怎么用：网络题的特点是「听起来都会，深问就断片」。先背 60 秒版建立主线，再用原理展开补细节；第 6 节「输入 URL 到渲染」要能一条线讲完，这是区分度最高的一题。"
+                  },
+                  {
+                      "path":  "06-system-design/系统设计入门.md",
+                      "title":  "系统设计入门（应届 / 初级版）",
+                      "lines":  295,
+                      "section":  "breadth-design",
+                      "summary":  "错误认知：系统设计是架构师的题，应届生不用准备。"
+                  },
+                  {
+                      "path":  "07-algorithm/前端手写题30道.md",
+                      "title":  "前端手写题 30 道",
+                      "lines":  448,
+                      "section":  "breadth-algo",
+                      "summary":  "相关章节：算法路线与高频模板　|　JS 核心八股　|　Vue3 原理与对比　|　HTTP 与浏览器"
+                  },
+                  {
+                      "path":  "07-algorithm/算法路线与高频模板.md",
+                      "title":  "算法路线与高频模板",
+                      "lines":  450,
+                      "section":  "breadth-algo",
+                      "summary":  "相关章节：前端手写题 30 道　|　JS 核心八股　|　Java 基础与并发　|　系统设计入门　|　模拟面试题库与流程"
+                  },
+                  {
+                      "path":  "08-project/项目复盘与简历.md",
+                      "title":  "项目复盘与简历包装",
+                      "lines":  278,
+                      "section":  "breadth-project",
+                      "summary":  "面试官的判断逻辑其实很简单："
+                  },
+                  {
+                      "path":  "09-mock/模拟面试题库与流程.md",
+                      "title":  "模拟面试题库与流程",
+                      "lines":  354,
+                      "section":  "breadth-mock",
+                      "summary":  "00:00-02:00  自我介绍"
+                  }
+              ],
+    "stats":  {
+                  "files":  71,
+                  "lines":  19297
+              }
+}

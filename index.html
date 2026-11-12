@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全栈面试知识库</title>
+<meta name="description" content="后端为主的全栈面试知识库：Java、Spring Boot、MySQL、Redis、Kafka、分布式与网络，每个知识点从一句话答案追问到源码层。">
+<meta property="og:title" content="全栈面试知识库">
+<meta property="og:description" content="后端为主的全栈面试知识库，每个知识点从一句话答案追问到源码层">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b1b1a'/%3E%3Ctext x='16' y='23' font-size='18' font-family='serif' text-anchor='middle' fill='%23fcfcfa'%3E%E5%85%AB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" type="button">目录</button>
+  <a class="brand" href="#/">全栈面试知识库<span class="sub">后端为主 · Java / Spring Boot / MySQL / Redis / 分布式</span></a>
+
+  <div class="search-wrap">
+    <input id="search" type="search" placeholder="搜索知识点" autocomplete="off" spellcheck="false">
+    <kbd>/</kbd>
+  </div>
+
+  <nav class="nav-links">
+    <a href="https://github.com/NJHTR/baguwen" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="文档目录"></aside>
+  <main class="content" id="content">
+    <div class="loading">加载中</div>
+  </main>
+  <aside class="toc" id="toc" aria-label="本页目录"></aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
