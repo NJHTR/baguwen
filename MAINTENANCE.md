@@ -120,6 +120,15 @@ pwsh -File tools/new-note.ps1 -Section redis -Title "Redis 大 key 治理"
     └─ js/                    前端（全栈面试用）
 ```
 
+### 新增一篇「教材式精讲」
+
+和深度追问不同，精讲是 14 节固定结构、每篇 380-600 行的长文：
+
+```bash
+pwsh -File tools/new-note.ps1 -Area lecture -Section mysql -Title "B+树索引"
+```
+
+要求：术语首现即解释、≥3 处数字化推导、≥1 个极简模型、≥2 个被否决方案、版本差异、可运行验证、误区 ≥6 行、Q&A ≥10 问、自测 ≥5 题。写完在 `11-lectures/00-索引.md` 补一行。
 ### 新增一个深度分区（比如想加 `kubernetes/`）
 
 1. 建目录：`10-deep-dive/kubernetes/`

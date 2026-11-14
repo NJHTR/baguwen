@@ -103,6 +103,27 @@ if (-not (Test-Path -LiteralPath $manifestPath)) {
     Report ("manifest 覆盖（" + $man.files.Count + " 条）") $missing.Count (($missing | Select-Object -First 5) -join ', ')
 }
 
+# ---------- 6. 精讲层结构 ----------
+$lecDir = Join-Path $root '11-lectures'
+$lecBad = @()
+$lecFiles = @()
+if (Test-Path -LiteralPath $lecDir) {
+    $lecFiles = Get-ChildItem -LiteralPath $lecDir -Recurse -File -Filter *.md |
+        Where-Object { $_.Name -notmatch '^00-' }
+    foreach ($f in $lecFiles) {
+        $txt = [System.IO.File]::ReadAllText($f.FullName, [System.Text.Encoding]::UTF8)
+        $lines = ($txt -split "`r?`n").Count - 1
+        $sections = ([regex]::Matches($txt, '(?m)^## \d+\.')).Count
+        $qa = ([regex]::Matches($txt, '(?m)^### Q\d+')).Count
+        $selfTest = ([regex]::Matches($txt, '(?m)^\*\*\d+\. ')).Count
+        if (-not $txt.Contains('## 0.')) { $lecBad += ($f.Name + " 缺第 0 节") }
+        elseif ($sections -lt 12) { $lecBad += ($f.Name + " 编号节仅 " + $sections) }
+        elseif ($lines -lt 380) { $lecBad += ($f.Name + " 仅 " + $lines + " 行") }
+        elseif ($qa -lt 10) { $lecBad += ($f.Name + " Q&A 仅 " + $qa + " 问") }
+        elseif ($selfTest -lt 5) { $lecBad += ($f.Name + " 自测仅 " + $selfTest + " 题") }
+    }
+    Report ("精讲层结构（" + $lecFiles.Count + " 篇）") $lecBad.Count ($lecBad -join '; ')
+}
 # ---------- 汇总 ----------
 Write-Host ''
 if ($fail -eq 0) {

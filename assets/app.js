@@ -23,6 +23,7 @@
     { id: 'deep-network', title: '网络协议' },
     { id: 'deep-ops', title: '运维与可观测' },
     { id: 'deep-backend', title: '后端优化' },
+    { id: 'lectures', title: '精讲（教材式）' },
     { id: 'deep-js', title: 'JS / ES6' },
     { id: 'breadth-java', title: 'Java / Spring 八股' },
     { id: 'breadth-db', title: '数据库八股' },

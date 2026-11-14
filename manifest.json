@@ -1,17 +1,17 @@
 {
-    "generatedAt":  "2026-11-12 14:20",
+    "generatedAt":  "2026-11-14 13:52",
     "files":  [
                   {
                       "path":  "MAINTENANCE.md",
                       "title":  "维护手册",
-                      "lines":  264,
+                      "lines":  273,
                       "section":  "start",
                       "summary":  "pwsh -File tools/new-note.ps1 -Section java -Title \"Spring Bean 作用域\""
                   },
                   {
                       "path":  "README.md",
                       "title":  "全栈 Web 开发面试知识库",
-                      "lines":  169,
+                      "lines":  170,
                       "section":  "start",
                       "summary":  "https://njhtr.github.io/baguwen/"
                   },
@@ -422,6 +422,188 @@
                       "summary":  "异步 = 把非关键路径从主链路摘出去，用有界线程池或 MQ 承接，接口先返回、后台慢慢做；削峰 = 用消息队列/有界队列把瞬时高峰缓冲起来，消费者按自己的速率消费（\"填谷\"）。异步…"
                   },
                   {
+                      "path":  "11-lectures/00-索引.md",
+                      "title":  "精讲索引（教材式）",
+                      "lines":  158,
+                      "section":  "lectures",
+                      "summary":  "推荐顺序：先精讲（学懂为什么）→ 再速查（记住怎么答）→ 最后模拟面试（说出来）。"
+                  },
+                  {
+                      "path":  "11-lectures/distributed/01-分布式事务.md",
+                      "title":  "分布式事务：2PC、TCC、本地消息表到底怎么选？",
+                      "lines":  515,
+                      "section":  "lectures",
+                      "summary":  "分布式事务 = 一个业务操作跨了两个及以上「各自独立的数据库 / 服务」，要保证最终要么全成功、要么全回滚。"
+                  },
+                  {
+                      "path":  "11-lectures/java/01-HashMap-hash扰动.md",
+                      "title":  "HashMap 的 hash() 为什么要做「高低 16 位异或扰动」？",
+                      "lines":  605,
+                      "section":  "lectures",
+                      "summary":  "如果直接拿 `hashCode()` 去算下标，高 16 位的信息全被丢掉；而现实中很多 `hashCode()` 恰好是「高 16 位在变、低 16 位不变」。"
+                  },
+                  {
+                      "path":  "11-lectures/java/02-HashMap扩容机制.md",
+                      "title":  "HashMap 扩容机制：为什么扩容后不用重新算 hash？",
+                      "lines":  453,
+                      "section":  "lectures",
+                      "summary":  "元素数超过「容量 × 0.75」时，HashMap 把容量翻倍，然后把每个桶的元素分成两队：一队留在原下标，一队移到「原下标 + 旧容量」。判断只看一个 bit：`(e.hash …"
+                  },
+                  {
+                      "path":  "11-lectures/java/03-红黑树与树化.md",
+                      "title":  "红黑树与树化：为什么阈值是 8 和 64，退化又是 6？",
+                      "lines":  489,
+                      "section":  "lectures",
+                      "summary":  "JDK 8 的 HashMap 在「单个桶的链表太长」时，会把这条链表换成红黑树，让最坏查询从 O(n) 变成 O(log n)。"
+                  },
+                  {
+                      "path":  "11-lectures/java/04-String常量池与intern.md",
+                      "title":  "String 常量池与 intern：字符串到底存在哪，new String 创建几个对象？",
+                      "lines":  453,
+                      "section":  "lectures",
+                      "summary":  "字面量（代码里写死的 `\"abc\"`）会被放进「字符串常量池」，池在 JDK 7 起位于堆；`new String(\"abc\")` 一定会在堆上另建一个 String 对象，所以 …"
+                  },
+                  {
+                      "path":  "11-lectures/java/05-JVM内存布局与对象布局.md",
+                      "title":  "JVM 内存布局与对象布局：一个 `new Object()` 到底占多少字节？",
+                      "lines":  452,
+                      "section":  "lectures",
+                      "summary":  "JVM 把内存分成线程私有（程序计数器、虚拟机栈、本地方法栈）和线程共享（堆、方法区；JDK 8 后方法区由元空间实现，在本地内存）两大类，另外还有一块不在规范里的直接内存。"
+                  },
+                  {
+                      "path":  "11-lectures/java/06-GC三色标记与写屏障.md",
+                      "title":  "GC 三色标记与写屏障：并发标记为什么会出现「漏标」",
+                      "lines":  477,
+                      "section":  "lectures",
+                      "summary":  "GC 要判断「哪些对象还活着」，做法是从 GC Roots 出发遍历引用图。如果全程停顿（STW），遍历期间没人改对象图，结果一定正确 —— 但停顿太长。"
+                  },
+                  {
+                      "path":  "11-lectures/java/07-线程池执行流程.md",
+                      "title":  "线程池执行一个任务时，线程到底是怎么被复用的？",
+                      "lines":  601,
+                      "section":  "lectures",
+                      "summary":  "线程池的核心就一句话：线程不跟着任务走，线程自己活在自己的循环里，任务只是从队列里被取出来执行的一段代码。"
+                  },
+                  {
+                      "path":  "11-lectures/java/08-synchronized锁升级.md",
+                      "title":  "synchronized 在对象头里到底发生了什么变化？",
+                      "lines":  601,
+                      "section":  "lectures",
+                      "summary":  "只升不降。这就是为什么同一个 `synchronized` 关键字，在无竞争时几乎免费，在高竞争时才变成昂贵的阻塞。"
+                  },
+                  {
+                      "path":  "11-lectures/java/09-volatile与内存屏障.md",
+                      "title":  "volatile 到底在 CPU 上做了什么？",
+                      "lines":  504,
+                      "section":  "lectures",
+                      "summary":  "1. 可见性：一个线程写了 `volatile` 变量，其他线程立刻能读到最新值"
+                  },
+                  {
+                      "path":  "11-lectures/java/10-IO模型与epoll.md",
+                      "title":  "IO 模型与 epoll：为什么一个线程能扛一万连接？",
+                      "lines":  594,
+                      "section":  "lectures",
+                      "summary":  "一次网络读取分两个阶段：等数据到达内核缓冲区、把数据从内核缓冲区拷贝到用户空间。IO 模型就是看这两个阶段各自「谁在等、怎么等」。"
+                  },
+                  {
+                      "path":  "11-lectures/middleware/01-Kafka零拷贝.md",
+                      "title":  "Kafka 零拷贝：一条消息从磁盘到网卡，到底拷贝了几次？",
+                      "lines":  585,
+                      "section":  "lectures",
+                      "summary":  "一条已经存在磁盘文件里的消息，要通过网络发给消费者。最朴素的写法 `read()` + `write()` 会让数据在用户态和内核态之间白跑两趟，一共 4 次数据拷贝、4 次上下文…"
+                  },
+                  {
+                      "path":  "11-lectures/middleware/02-MyBatis执行链路.md",
+                      "title":  "MyBatis 执行链路：一行 mapper 调用，是怎么变成 ResultSet 的？",
+                      "lines":  599,
+                      "section":  "lectures",
+                      "summary":  "Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;"
+                  },
+                  {
+                      "path":  "11-lectures/middleware/03-Docker隔离.md",
+                      "title":  "Docker 隔离：namespace 和 cgroup 到底做了什么？",
+                      "lines":  597,
+                      "section":  "lectures",
+                      "summary":  "容器不是「轻量虚拟机」，它是宿主机上的普通进程：用 namespace 把进程「能看见的世界」隔开（进程、网络、挂载点、主机名等），用 cgroup 把它「能用多少资源」限住（CP…"
+                  },
+                  {
+                      "path":  "11-lectures/mysql/01-B+树索引.md",
+                      "title":  "B+ 树索引：为什么不用 B 树、哈希和跳表？",
+                      "lines":  467,
+                      "section":  "lectures",
+                      "summary":  "索引就是排好序、按页组织的一张目录。InnoDB 的目录是一棵 B+ 树：非叶子节点只存「键 + 子页号」，叶子节点按主键顺序存数据并用链表串起来。"
+                  },
+                  {
+                      "path":  "11-lectures/mysql/02-MVCC与ReadView.md",
+                      "title":  "MVCC 与 ReadView：为什么能读到「过去」的数据？",
+                      "lines":  503,
+                      "section":  "lectures",
+                      "summary":  "MVCC（Multi-Version Concurrency Control，多版本并发控制）让「读」不用加锁：每行数据旁边挂着一条由 undo log 串起来的旧版本链，每行还隐…"
+                  },
+                  {
+                      "path":  "11-lectures/mysql/03-三大日志与崩溃恢复.md",
+                      "title":  "三大日志：提交成功之后断电，数据到底在不在？",
+                      "lines":  501,
+                      "section":  "lectures",
+                      "summary":  "InnoDB 有三套日志，各管一摊："
+                  },
+                  {
+                      "path":  "11-lectures/network/01-TCP三次握手四次挥手.md",
+                      "title":  "TCP 三次握手与四次挥手：为什么建连要三次，断连要等 2MSL？",
+                      "lines":  574,
+                      "section":  "lectures",
+                      "summary":  "TCP 跑在\"可能丢包、可能重复、可能乱序\"的 IP 之上。建连时双方各发一个带初始序列号（ISN）的 SYN，再各回一个 ACK，让彼此都确认三件事：你在、我能发到你这、你收到了…"
+                  },
+                  {
+                      "path":  "11-lectures/network/02-TLS握手.md",
+                      "title":  "TLS 握手：HTTPS 到底加密了什么，握手为什么是 1~2 个往返？",
+                      "lines":  581,
+                      "section":  "lectures",
+                      "summary":  "HTTPS = HTTP + TLS。TLS 用证书回答\"我是不是我要连的那个人\"（身份认证），用密钥交换协商出一个只有双方知道的会话密钥，之后所有数据用对称加密传输。TLS 1.…"
+                  },
+                  {
+                      "path":  "11-lectures/redis/01-Redis底层编码.md",
+                      "title":  "Redis 底层编码：一个 key 到底存在什么结构里？",
+                      "lines":  511,
+                      "section":  "lectures",
+                      "summary":  "Redis 对外只暴露 5 种类型（string、hash、list、set、zset），但内部给每种类型准备了多种编码（encoding）："
+                  },
+                  {
+                      "path":  "11-lectures/redis/02-Redis持久化.md",
+                      "title":  "Redis 持久化：内存数据库断电了，数据还在吗？",
+                      "lines":  523,
+                      "section":  "lectures",
+                      "summary":  "Redis 是内存数据库，断电内存就没了，所以需要两套落到磁盘的机制："
+                  },
+                  {
+                      "path":  "11-lectures/redis/03-缓存三件套.md",
+                      "title":  "缓存三件套：穿透、击穿、雪崩到底怎么区分？",
+                      "lines":  597,
+                      "section":  "lectures",
+                      "summary":  "三者都表现为「请求打到数据库」，区别只在谁出了问题："
+                  },
+                  {
+                      "path":  "11-lectures/redis/04-分布式锁.md",
+                      "title":  "分布式锁：从 SETNX 到 Redlock 的缺陷链",
+                      "lines":  597,
+                      "section":  "lectures",
+                      "summary":  "分布式锁要同时满足五件事：互斥、不死锁、防误删、可重入（可选）、高可用。"
+                  },
+                  {
+                      "path":  "11-lectures/spring/01-Spring事务失效.md",
+                      "title":  "@Transactional 为什么在有些方法上完全不生效？",
+                      "lines":  597,
+                      "section":  "lectures",
+                      "summary":  "1. 你调用的必须是代理对象（`this` 不是代理，同类自调用就失效）"
+                  },
+                  {
+                      "path":  "11-lectures/spring/02-Spring循环依赖与三级缓存.md",
+                      "title":  "Spring 为什么要用三级缓存解决循环依赖？",
+                      "lines":  579,
+                      "section":  "lectures",
+                      "summary":  "循环依赖就是 A 依赖 B、B 又依赖 A。Spring 的做法是「先造出半成品，提前暴露引用」："
+                  },
+                  {
                       "path":  "01-js/JS核心八股.md",
                       "title":  "JS 核心八股",
                       "lines":  445,
@@ -507,7 +689,7 @@
                   }
               ],
     "stats":  {
-                  "files":  72,
-                  "lines":  19562
+                  "files":  98,
+                  "lines":  33285
               }
 }

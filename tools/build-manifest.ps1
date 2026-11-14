@@ -20,6 +20,7 @@ function Get-Section([string]$rel) {
     if ($p -like '10-deep-dive/network/*') { return 'deep-network' }
     if ($p -like '10-deep-dive/ops/*') { return 'deep-ops' }
     if ($p -like '10-deep-dive/js/*') { return 'deep-js' }
+    if ($p -like '11-lectures/*') { return 'lectures' }
     if ($p -like '10-deep-dive/java/*') { return 'deep-java' }
     if ($p -like '10-deep-dive/spring/*') { return 'deep-spring' }
     if ($p -like '10-deep-dive/mysql/*') { return 'deep-mysql' }
@@ -70,7 +71,7 @@ foreach ($f in $files) {
 }
 
 # 排序：开始 → 计划 → 深度层 → 广度层
-$order = @('start','plan','deep-index','deep-js','deep-java','deep-spring','deep-mysql','deep-redis','deep-middleware','deep-distributed','deep-network','deep-ops','deep-backend','breadth-js','breadth-vue','breadth-java','breadth-db','breadth-net','breadth-design','breadth-algo','breadth-project','breadth-mock','other')
+$order = @('start','plan','deep-index','deep-js','deep-java','deep-spring','deep-mysql','deep-redis','deep-middleware','deep-distributed','deep-network','deep-ops','deep-backend','lectures','breadth-js','breadth-vue','breadth-java','breadth-db','breadth-net','breadth-design','breadth-algo','breadth-project','breadth-mock','other')
 $sorted = $output | Sort-Object @{ Expression = { [array]::IndexOf($order, $_.section) } }, @{ Expression = { $_.path } }
 
 $totalLines = ($sorted | ForEach-Object { [int]$_.lines } | Measure-Object -Sum).Sum

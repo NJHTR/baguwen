@@ -1,0 +1,4 @@
+jdk8的hashMap是
+Node[] table(数组) + 链表 + 红黑树;
+hash() 把hashCode的高16位低16位做异或扰动
+put(k,v)
